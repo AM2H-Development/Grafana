@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  grafana:
+    image: "grafana/grafana-oss"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    container_name: "grafana"
+    networks:
+      - net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`grafana.qxf.de`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+      - "traefik.http.services.portainer.loadbalancer.server.port=3000"
+    volumes:
+      - "grafana_data:/var/lib/grafana"
+
+networks:
+  net:
+    external:
+      name: traefik_net
+
+volumes:
+  grafana_data:
