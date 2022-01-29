@@ -12,7 +12,7 @@ services:
     container_name: "grafana"
     networks:
       - net
-      - db
+      #- db
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.rule=Host(`grafana.qxf.de`)"
@@ -28,7 +28,7 @@ networks:
   net:
     external:
       name: traefik_net
-  db:
+  #db:
 
 volumes:
   grafana_data:
