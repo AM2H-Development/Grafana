@@ -14,10 +14,10 @@ services:
       - net
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`grafana.qxf.de`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
-      - "traefik.http.services.portainer.loadbalancer.server.port=3000"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.qxf.de`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.grafana.tls.certresolver=myresolver"
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
     volumes:
       - "grafana_data:/var/lib/grafana"
 
