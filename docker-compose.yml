@@ -19,6 +19,11 @@ services:
       - "traefik.http.routers.grafana.entrypoints=websecure"
       - "traefik.http.routers.grafana.tls.certresolver=myresolver"
       - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.grafanasts.headers.stsincludesubdomains=false"
+      - "traefik.http.middlewares.grafanasts.headers.stspreload=true"
+      - "traefik.http.middlewares.grafanasts.headers.stsseconds=31536000"
+      - "traefik.http.middlewares.grafanasts.headers.isdevelopment=false"
+      - "traefik.http.routers.grafana.middlewares=grafanasts"
     volumes:
       - "grafana_data:/var/lib/grafana"
     environment:
