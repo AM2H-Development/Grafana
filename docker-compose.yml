@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   grafana:
-    image: "grafana/grafana-oss:9.2.1"
+    image: "grafana/grafana-oss:10.1.6"
     logging:
       driver: "json-file"
       options:
