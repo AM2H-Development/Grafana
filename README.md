@@ -6,5 +6,5 @@ touch .env (fill with your personal data, see .env in git)
 
 cd Grafana
 
-docker-compose --env-file ../.env up -d
+docker compose --env-file ../.env up -d
 
