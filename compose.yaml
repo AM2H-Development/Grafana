@@ -31,8 +31,8 @@ services:
 
 networks:
   net:
-    external:
-      name: traefik_net
+    name: traefik_net
+    external: true
 
 volumes:
   grafana_data:
