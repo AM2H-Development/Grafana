@@ -9,3 +9,6 @@
 
 ## data:
 all Grafana data is stored in volume "grafana_data"
+
+## use:
+* first time default login is: admin/admin
