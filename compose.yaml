@@ -2,7 +2,7 @@ name: ${PROJECT}
 
 services:
   grafana:
-    image: "grafana/grafana-oss:10.1.6"
+    image: "grafana/grafana-oss:11.0.0"
     env_file: .env
     logging:
       driver: "json-file"
