@@ -1,4 +1,4 @@
-version: "3.9"
+name: grafana
 
 services:
   grafana:
@@ -12,7 +12,6 @@ services:
     container_name: "grafana"
     networks:
       - net
-      #- db
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.rule=Host(`grafana.${HOST}`)"
@@ -25,7 +24,7 @@ services:
       - "traefik.http.middlewares.grafanasts.headers.isdevelopment=false"
       - "traefik.http.routers.grafana.middlewares=grafanasts"
     volumes:
-      - "grafana_data:/var/lib/grafana"
+      - ./Data:/var/lib/grafana
     environment:
       - TZ=Europe/Berlin
 
@@ -33,7 +32,3 @@ networks:
   net:
     external:
       name: traefik_net
-  #db:
-
-volumes:
-  grafana_data:
