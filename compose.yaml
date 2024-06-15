@@ -3,6 +3,7 @@ name: grafana
 services:
   grafana:
     image: "grafana/grafana-oss:10.1.6"
+    env_file: .env
     logging:
       driver: "json-file"
       options:
@@ -24,7 +25,7 @@ services:
       - "traefik.http.middlewares.grafanasts.headers.isdevelopment=false"
       - "traefik.http.routers.grafana.middlewares=grafanasts"
     volumes:
-      - ./Data:/var/lib/grafana
+      - grafana_data:/var/lib/grafana
     environment:
       - TZ=Europe/Berlin
 
@@ -32,3 +33,6 @@ networks:
   net:
     external:
       name: traefik_net
+
+volumes:
+  grafana_data:
