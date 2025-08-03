@@ -2,14 +2,14 @@ name: ${PROJECT}
 
 services:
   grafana:
-    image: "grafana/grafana-oss:11.0.0"
+    image: "grafana/grafana-oss:12.1.0"
     env_file: .env
     logging:
       driver: "json-file"
       options:
         max-size: "200k"
         max-file: "10"
-    restart: unless-stopped    
+    restart: unless-stopped
     container_name: "grafana"
     networks:
       - net
